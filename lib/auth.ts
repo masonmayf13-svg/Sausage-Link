@@ -22,7 +22,7 @@ export async function verifyPassword(password: string, hashedPassword: string): 
 }
 
 export async function createToken(payload: JWTPayload): Promise<string> {
-  return new SignJWT(payload)
+  return new SignJWT(payload as any)
     .setProtectedHeader({ alg: 'HS256' })
     .setIssuedAt()
     .setExpirationTime('7d')
